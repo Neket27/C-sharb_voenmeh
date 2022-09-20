@@ -1,17 +1,22 @@
-﻿Console.WriteLine("Hello, World!");
+﻿Wine wine = new Wine("SPB", 1.5, '4', 2022, "White", "Sweet");
+Coffee coffee = new Coffee("SPB", 0.4, '0', 2022, "Latte", true);
 
-Wine wine = new Wine("SPB",1.5,'4',2022,"White","Sweet");
-Coffee coffee = new Coffee("SPB",0.4,'0',2022,"Latte",true);
+
 Console.WriteLine(wine.ToString());
-
-// coffee.Start();
-// Console.WriteLine(wine.DrinkLittle());
+Wine.ListenMinistryOfHealth("Не пейте много!");
+Console.WriteLine(coffee.ToString());
 
 class Wine : Drink
 {
-    public Wine() { }
+    
+    public string redOrWhite { get; set; }
+    public string dryOrSweet { get; set; }
+    
+    public Wine()
+    {
+    }
 
-    public Wine(string country,double volume,char degree,int year,string redOrWhite, string dryOrSweet)
+    public Wine(string country, double volume, char degree, int year, string redOrWhite, string dryOrSweet)
     {
         this.country = country;
         this.volume = volume;
@@ -20,10 +25,6 @@ class Wine : Drink
         this.redOrWhite = redOrWhite;
         this.dryOrSweet = dryOrSweet;
     }
-
-    public string redOrWhite { get; set; }
-    public string dryOrSweet { get; set; }
-
 
     public override void Start()
     {
@@ -46,25 +47,23 @@ class Wine : Drink
         return value;
     }
 
-    static void ListenMinistryOfHealth()
+    public static void ListenMinistryOfHealth(string text)
     {
-        Console.WriteLine("Слушайте минздрав");
+        Console.WriteLine("Слушайте минздрав. \n Минздрав говорит: " + text);
     }
-    
+
     public override string ToString()
     {
-
-        return base.ToString()+ string.Format(" Тип вина: {0} \n Вкус вина: {1}",redOrWhite,dryOrSweet);
+        return base.ToString() + string.Format(" Тип вина: {0} \n Вкус вина: {1}", redOrWhite, dryOrSweet);
     }
 }
 
 
-
-class IcedTea:Drink
+class IcedTea : Drink
 {
     public string typeTea { get; set; }
-    
-    public IcedTea(string country,double volume,char degree,int year,string typeTea)
+
+    public IcedTea(string country, double volume, char degree, int year, string typeTea)
     {
         this.country = country;
         this.volume = volume;
@@ -74,12 +73,12 @@ class IcedTea:Drink
     }
 }
 
-class Beer:Drink
+class Beer : Drink
 {
-    public string bottleVolume { get; set; }
+    private string bottleVolume { get; set; }
     public string lightAndDark { get; set; }
-    
-    public Beer(string country,double volume,char degree,int year,string bottleVolume, string lightAndDark)
+
+    public Beer(string country, double volume, char degree, int year, string bottleVolume, string lightAndDark)
     {
         this.country = country;
         this.volume = volume;
@@ -90,12 +89,12 @@ class Beer:Drink
     }
 }
 
-class Champange:Drink
+class Champange : Drink
 {
     public int alcohol { get; set; }
     public string excerpt { get; set; }
-    
-    public Champange(string country,double volume,char degree,int year,int alcohol, string excerpt)
+
+    public Champange(string country, double volume, char degree, int year, int alcohol, string excerpt)
     {
         this.country = country;
         this.volume = volume;
@@ -106,13 +105,13 @@ class Champange:Drink
     }
 }
 
-class Cocktail:Drink
+class Cocktail : Drink
 {
     public bool withMilk { get; set; }
     public bool alcoholic { get; set; }
     public string taste { get; set; }
-    
-    public Cocktail(string country,double volume,char degree,int year,bool withMilk, bool alcoholic, string taste)
+
+    public Cocktail(string country, double volume, char degree, int year, bool withMilk, bool alcoholic, string taste)
     {
         this.country = country;
         this.volume = volume;
@@ -124,12 +123,12 @@ class Cocktail:Drink
     }
 }
 
-class Coffee:Drink
+class Coffee : Drink
 {
     public string title { get; set; }
     public bool withLeker { get; set; }
-    
-    public Coffee(string country,double volume,char degree,int year, string title, bool withLeker)
+
+    public Coffee(string country, double volume, char degree, int year, string title, bool withLeker)
     {
         this.country = country;
         this.volume = volume;
@@ -155,7 +154,8 @@ public abstract class Drink
 
     public override string ToString()
     {
-        return string.Format("Вызван класс: {4} \n Страна: {0} \n Объём: {1} \n Процент алкоголя: {2} \n Год производства: {3} \n",country,volume,degree,year,GetType());
+        return string.Format(
+            "Вызван класс: {4} \n Страна: {0} \n Объём: {1} \n Процент алкоголя: {2} \n Год производства: {3} \n",
+            country, volume, degree, year, GetType());
     }
-    
 }

@@ -1,0 +1,66 @@
+﻿@startuml
+
+abstract class Drink
+{
+    - string country { get; set; }
+    - double volume { get; set; }
+    - char degree { get; set; }
+    - int year { get; set; }
+
+    + virtual void Start();
+    + override string ToString();
+}
+
+class Wine 
+{
+   - string redOrWhite { get; set; }
+   - string dryOrSweet { get; set; }
+   
+    + override void Start();   
+    + string ViewingLightReflection(string value);
+    + string DrinkLittle();
+    + string EstimateSmell(string value); 
+    + static void ListenMinistryOfHealth(string text);
+    + override string ToString();
+}
+
+class IcedTea
+{
+    + string typeTea { get; set; }
+
+}
+
+class Beer
+{
+    - string bottleVolume { get; set; }- string lightAndDark { get; set; }
+    
+}
+
+
+class Champange
+{
+    - int alcohol { get; set; }
+    - string excerpt { get; set; }
+}
+
+class Cocktail
+{
+    - bool withMilk { get; set; }
+    - bool alcoholic { get; set; }
+    - string taste { get; set; }
+}
+
+class Coffee
+{
+    - string title { get; set; }
+    - bool withLeker { get; set; }
+}
+
+Drink --|> Wine
+Drink --|> IcedTea
+Drink --|> Beer
+Drink --|> Champange
+Drink --|> Cocktail
+Drink --|> Coffee
+
+@enduml
