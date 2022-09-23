@@ -26,14 +26,19 @@ class Wine
 
 class IcedTea
 {
-    + string typeTea { get; set; }
-
+    - string typeTea { get; set; }
+    
+    + void ReadinessTea()
+    +override string ToString()
 }
 
 class Beer
 {
-    - string bottleVolume { get; set; }- string lightAndDark { get; set; }
+    - string bottleVolume { get; set; }
+    - string lightAndDark { get; set; }
     
+    + string Feesdback(string feesdback);
+    + override string ToString()
 }
 
 
@@ -41,6 +46,9 @@ class Champange
 {
     - int alcohol { get; set; }
     - string excerpt { get; set; }
+    
+    + void InvitationOnFactory()
+    + override string ToString()
 }
 
 class Cocktail
@@ -48,12 +56,16 @@ class Cocktail
     - bool withMilk { get; set; }
     - bool alcoholic { get; set; }
     - string taste { get; set; }
+    
+    + override string ToString()
 }
 
 class Coffee
 {
     - string title { get; set; }
     - bool withLeker { get; set; }
+    
+    + override string ToString()
 }
 
 Drink --|> Wine
