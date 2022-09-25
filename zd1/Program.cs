@@ -40,7 +40,7 @@
         static void Main(string[] args)
         {
             Queue<CollectibleBottle> collectibleBottles = new Queue<CollectibleBottle>();
-            
+
             Console.WriteLine("Введите имя файла:");
             string fileName = "collectibleBottlesList.dat";
             // string fileName =Console.ReadLine() +".dat";
@@ -151,7 +151,8 @@
                     case 7:
                     {
                         {
-                            List<CollectibleBottle> listBottle = new List<CollectibleBottle>(collectibleBottles.ToArray());
+                            List<CollectibleBottle> listBottle =
+                                new List<CollectibleBottle>(collectibleBottles.ToArray());
                             num = 1;
                             Console.WriteLine("Номер\t|Название\t|Процент\t|Год\t|Цена\t|Страна_производства\t");
                             var bottles =
