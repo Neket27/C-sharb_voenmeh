@@ -1,0 +1,25 @@
+﻿@startuml
+
+
+
+struct CollectibleBottle{
+
++string name;
++double percentageOfGrapeJuice;
++int yearRelease;
++double price;
++string countryManufacturer;
+
++override string ToString()
+}
+
+
+class Program{
+
++static int CompareCollectibleBottlesListByName(CollectibleBottle bottle, CollectibleBottle bottle2)
++static int Menu()
++static void Main(string[] args)
+
+}
+
+@enduml

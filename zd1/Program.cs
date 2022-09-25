@@ -1,22 +1,23 @@
-﻿namespace ConsoleApp3
+﻿namespace App
 {
+    
+    struct CollectibleBottle
+    {
+        public string name;
+        public double percentageOfGrapeJuice;
+        public int yearRelease;
+        public double price;
+        public string countryManufacturer;
+
+        public override string ToString()
+        {
+            return $"|{this.name}\t\t|{percentageOfGrapeJuice}\t\t|{yearRelease}\t|{price}\t|{countryManufacturer}";
+        }
+    }
+    
     internal class Program
     {
-        internal struct CollectibleBottle
-        {
-            public string name;
-            public double percentageOfGrapeJuice;
-            public int yearRelease;
-            public double price;
-            public string countryManufacturer;
-
-            public override string ToString()
-            {
-                return $"|{this.name}\t\t|{percentageOfGrapeJuice}\t\t|{yearRelease}\t|{price}\t|{countryManufacturer}";
-            }
-        }
-
-        public static int CompareCollectibleBottlesListByName(CollectibleBottle bottle, CollectibleBottle bottle2)
+    public static int CompareCollectibleBottlesListByName(CollectibleBottle bottle, CollectibleBottle bottle2)
         {
             return String.Compare(bottle.name, bottle2.name);
         }
@@ -29,7 +30,7 @@
             Console.WriteLine("2 - Убрать напиток из начала");
             Console.WriteLine("3 - Найти напиток с большим содержанием виноградного сока");
             Console.WriteLine("4 - Вывод всех напитков");
-            Console.WriteLine("5 - Сортировка напитков по названию");
+            Console.WriteLine("5 - Вывести отсортированные напитки по названию");
             Console.WriteLine("6 - Заменить напиток");
             Console.WriteLine("7 - Вывести бутылки без виноградного сока, выпущенные в этом году");
             Console.WriteLine("8 - Вывести бутылки, выпущенные в указанной стране в указанном году");
